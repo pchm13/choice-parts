@@ -15,7 +15,15 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name', 30);
+            $table->string('image', 100)->nullable();
+            $table->text('description')->nullable();
+            $table->boolean('is_sale');
+            $table->boolean('is_public');
+            $table->boolean('is_choice');
+            $table->foreignId('customer_id')->nullable();
+            $table->date('created_at');
+            $table->date('updated_at');
         });
     }
 
