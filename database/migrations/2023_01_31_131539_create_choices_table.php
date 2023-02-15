@@ -15,12 +15,9 @@ return new class extends Migration
     {
         Schema::create('choices', function (Blueprint $table) {
             $table->id();
-            $table->string('first_value', 30);
-            $table->string('first_image', 100);
-            $table->string('second_value', 30);
-            $table->string('second_image', 100);
-            $table->string('third_value', 30);
-            $table->string('third_image', 100);
+            $table->foreignId('first_choice_id');
+            $table->foreignId('second_choice_id');
+            $table->foreignId('third_choice_id');
             $table->date('created_at');
             $table->date('updated_at');
         });
